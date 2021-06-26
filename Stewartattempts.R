@@ -3,8 +3,9 @@ require(tidyverse)
 
 ui<- fluidPage(
   titlePanel("US Workforce"),
-  numericInput(inputId = "year1", label = "start year", value = 1980),
-  numericInput("year2", label = "end year", 2020),
+  selectInput(inputId = "year1", label = "from: ", choices = unique(LaborData$Year)),
+  selectInput("year2", label = "end year", choices = unique(LaborData$Year)),
+  selectInput("sex", "Sex", choices = unique(LaborData$Sex)),
   plotOutput("point")
 )
 
