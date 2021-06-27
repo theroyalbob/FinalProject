@@ -34,7 +34,7 @@ server <- function(input, output, session) {
    
     ggplot(data = df, aes(Year, .data[[input$Var]], color = Sex))+
       geom_point()+
-      geom_smooth(method = "lm")
+      geom_smooth(method = "lm", se = FALSE)
   })
   
   
