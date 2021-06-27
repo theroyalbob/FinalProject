@@ -32,8 +32,9 @@ server <- function(input, output, session) {
    df <- LaborData %>%
      filter(Sex == input$SelectedSex)
    
-    ggplot(data = df, aes(Year, .data[[input$Var]]))+
-      geom_point(aes(color = Sex))
+    ggplot(data = df, aes(Year, .data[[input$Var]], color = Sex))+
+      geom_point()+
+      geom_smooth(method = "lm")
   })
   
   
